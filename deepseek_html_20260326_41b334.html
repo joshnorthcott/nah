@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Nah Collective | Real Estate Advisors – Mérida</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1E2F2C;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1A6D5E 0%, #0F5548 100%);
+      color: white;
+      box-shadow: 0 6px 14px rgba(26, 109, 94, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 22px rgba(26, 109, 94, 0.35);
+      background: linear-gradient(135deg, #1F7E6C 0%, #126454 100%);
+    }
+
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.9);
+      color: white;
+      background: rgba(0,0,0,0.2);
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-outline:hover {
+      background: #1A6D5E;
+      border-color: #1A6D5E;
+      color: white;
+      backdrop-filter: none;
+    }
+
+    .btn-wa {
+      background: #25D366;
+      color: white;
+      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-wa:hover {
+      background: #20b859;
+      transform: translateY(-3px);
+    }
+
+    .btn-light {
+      background: white;
+      color: #1A6D5E;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .btn-light:hover {
+      background: #FEF7E6;
+      transform: translateY(-2px);
+    }
+
+    /* section styling */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: 2.7rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #1A5A4F 0%, #0E3F36 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .section-sub {
+      font-size: 1.2rem;
+      color: #4A6A62;
+      max-width: 700px;
+      margin-bottom: 56px;
+    }
+
+    /* HERO with background image (modern full-width) */
+    .hero {
+      position: relative;
+      background: linear-gradient(105deg, rgba(10, 35, 30, 0.82) 0%, rgba(20, 55, 45, 0.7) 100%), 
+                  url('https://images.pexels.com/photos/2802292/pexels-photo-2802292.jpeg?auto=compress&cs=tinysrgb&w=1600') center center/cover no-repeat;
+      background-size: cover;
+      background-position: 45% 35%;
+      padding: 140px 0 160px;
+      color: white;
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: linear-gradient(to top, #ffffff, transparent);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 650px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-headline {
+      font-size: 4.2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      margin-bottom: 40px;
+      opacity: 0.92;
+      max-width: 550px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    /* what is nah — colourful accent */
+    .what-bg {
+      background: linear-gradient(120deg, #FFFBF5 0%, #FEF9F0 100%);
+      position: relative;
+    }
+
+    .what-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .what-text {
+      flex: 1.2;
+    }
+
+    .what-text p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #2C5449;
+    }
+
+    .highlight {
+      font-weight: 700;
+      color: #E07C3C;
+      background: linear-gradient(120deg, #FFE9CF, #FFE0BD);
+      padding: 2px 12px;
+      border-radius: 40px;
+      display: inline-block;
+    }
+
+    .what-quote {
+      flex: 0.9;
+      background: #FFFFFFE6;
+      backdrop-filter: blur(2px);
+      padding: 40px 32px;
+      border-radius: 48px;
+      box-shadow: 0 25px 40px -20px rgba(0,0,0,0.2);
+      border: 1px solid rgba(224, 124, 60, 0.2);
+    }
+
+    .accent-icon {
+      color: #E07C3C;
+    }
+
+    /* features cards — modern */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+      margin-top: 20px;
+    }
+
+    .feature-card {
+      background: #FFFFFF;
+      border-radius: 32px;
+      padding: 36px 28px;
+      transition: all 0.3s ease;
+      border: 1px solid #F0E7DC;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: #E07C3C40;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+    }
+
+    .feature-card i {
+      font-size: 2.4rem;
+      background: linear-gradient(135deg, #1A6D5E, #E07C3C);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 24px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #1A4A3F;
+    }
+
+    .feature-card p {
+      color: #5F7C73;
+      line-height: 1.5;
+    }
+
+    /* property grid */
+    .properties-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      margin: 48px 0 40px;
+    }
+
+    .prop-card {
+      background: white;
+      border-radius: 36px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 12px 28px -8px rgba(0,0,0,0.08);
+      border: 1px solid #F2E7DB;
+    }
+
+    .prop-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 36px -16px rgba(0,0,0,0.15);
+    }
+
+    .prop-img {
+      height: 240px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.4s;
+    }
+
+    .prop-card:hover .prop-img {
+      transform: scale(1.02);
+    }
+
+    .prop-info {
+      padding: 24px 28px 28px;
+    }
+
+    .prop-title {
+      font-weight: 800;
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .prop-location {
+      color: #E07C3C;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+
+    .prop-price {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #1A6D5E;
+      margin-top: 12px;
+    }
+
+    /* collective - modern avatars */
+    .collective-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      margin-top: 48px;
+    }
+
+    .agent-card {
+      background: white;
+      border-radius: 48px;
+      padding: 36px 30px;
+      flex: 1;
+      min-width: 260px;
+      max-width: 340px;
+      transition: all 0.25s;
+      border: 1px solid #F1E3D6;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+      text-align: center;
+    }
+
+    .agent-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(145deg, #F4EADF, #FEF5EA);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 2.5rem;
+      color: #E07C3C;
+    }
+
+    .agent-name {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .agent-title {
+      color: #E07C3C;
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+    }
+
+    .agent-quote {
+      font-style: normal;
+      color: #3D665B;
+      border-top: 2px solid #F3E4D6;
+      padding-top: 20px;
+      margin-top: 10px;
+    }
+
+    /* CTA colorful */
+    .cta-section {
+      background: linear-gradient(125deg, #1B5E50 0%, #12473E 100%);
+      border-radius: 64px;
+      margin: 40px auto 80px;
+      padding: 72px 48px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+    }
+
+    .cta-section h2 {
+      font-size: 2.4rem;
+      font-weight: 800;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      background: #FEFAF4;
+      color: #5E7B72;
+    }
+
+    @media (max-width: 800px) {
+      .hero-headline {
+        font-size: 2.8rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .hero {
+        padding: 100px 0 120px;
+      }
+      .container {
+        padding: 0 24px;
+      }
+      .cta-section {
+        padding: 48px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hero Section with background image (no placeholder) -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-headline">Find your place,<br>the right way.</h1>
+      <p class="hero-sub">Nah Collective is a curated group of independent real estate advisors helping you buy and invest in Mérida with clarity, confidence, and no pressure.</p>
+      <div class="btn-group">
+        <a href="#properties" class="btn btn-primary"><i class="fas fa-home"></i> View Properties</a>
+        <a href="https://wa.me/5219991234567?text=Hello%2C%20I'm%20interested%20in%20buying%20in%20Mérida" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Speak with Us (WhatsApp)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 2 — What is Nah Collective (with color) -->
+<section class="what-bg">
+  <div class="container what-grid">
+    <div class="what-text">
+      <h2 class="section-title">What is Nah Collective</h2>
+      <p><span class="highlight">“Nah” means home in Mayan</span> — because this is about more than just property.</p>
+      <p>Nah Collective brings together a select group of local real estate professionals who share a common approach: honest guidance, deep local knowledge, and a focus on long-term value.</p>
+      <p>We’re not a traditional agency.<br>We’re a <strong>collective</strong> — built to give you better insight, better options, and a better experience.</p>
+    </div>
+    <div class="what-quote">
+      <i class="fas fa-tree accent-icon" style="font-size: 2rem; margin-bottom: 16px; display: inline-block;"></i>
+      <p style="font-size: 1.2rem; font-weight: 500;">"We don’t just sell houses — we help you root your story in Mérida."</p>
+      <p style="margin-top: 24px;">— Founding team</p>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3 — Why We’re Different (modern cards) -->
+<section>
+  <div class="container">
+    <h2 class="section-title">Why We’re Different</h2>
+    <p class="section-sub">A fresh, honest approach to real estate in Mérida, built on integrity and local roots.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="fas fa-feather-alt"></i>
+        <h3>No Pressure, Just Guidance</h3>
+        <p>We focus on helping you make the right decision — not the fastest one.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-gem"></i>
+        <h3>Curated Opportunities</h3>
+        <p>We don’t show everything. Only what we believe is genuinely worth considering.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-map-marked-alt"></i>
+        <h3>Local Insight That Matters</h3>
+        <p>From neighborhoods to pricing trends, we help you understand what others don’t tell you.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-globe-americas"></i>
+        <h3>Built for Foreign Buyers</h3>
+        <p>Clear communication, transparent process, and support every step of the way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4 — Featured Properties (handpicked) -->
+<section id="properties" style="background: #FFFBF7;">
+  <div class="container">
+    <h2 class="section-title">Featured Properties</h2>
+    <p class="section-sub">Handpicked homes and investment opportunities across Mérida.</p>
+    <div class="properties-grid">
+      <!-- property 1 -->
+      <div class="prop-card">
+        <div class="prop-img" style="background-image: url('https://images.pexels.com/photos/2802219/pexels-photo-2802219.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+        <div class="prop-info">
+          <div class="prop-title">Casona Del Centro</div>
+          <div class="prop-location"><i class="fas fa-location-dot"></i> Centro Histórico, Mérida</div>
+          <p>Restored colonial with high ceilings, private courtyard & cenote-style pool.</p>
+          <div class="prop-price">$395,000 USD</div>
+        </div>
+      </div>
+      <!-- property 2 -->
+      <div class="prop-card">
+        <div class="prop-img" style="background-image: url('https://images.pexels.com/photos/2587054/pexels-photo-2587054.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+        <div class="prop-info">
+          <div class="prop-title">Residencial del Norte</div>
+          <div class="prop-location"><i class="fas fa-location-dot"></i> García Ginerés</div>
+          <p>Contemporary 3-bed, solar panels, large garden. High appreciation zone.</p>
+          <div class="prop-price">$475,000 USD</div>
+        </div>
+      </div>
+      <!-- property 3 -->
+      <div class="prop-card">
+        <div class="prop-img" style="background-image: url('https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+        <div class="prop-info">
+          <div class="prop-title">Terreno con Proyecto</div>
+          <div class="prop-location"><i class="fas fa-location-dot"></i> Santa María, Mérida</div>
+          <p>Land with approved architectural plans, ideal for investors seeking turnkey development.</p>
+          <div class="prop-price">$189,000 USD</div>
+        </div>
+      </div>
+    </div>
+    <div class="btn-center" style="text-align: center;">
+      <a href="#" class="btn btn-primary" style="background: white; color: #1A6D5E; border: 2px solid #1A6D5E; box-shadow: none;"><i class="fas fa-arrow-right"></i> View All Properties</a>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5 — Meet the Collective (rich, warm style) -->
+<section>
+  <div class="container">
+    <h2 class="section-title">Meet the Collective</h2>
+    <p class="section-sub">A group of independent advisors, working together under a shared standard.</p>
+    <div class="collective-grid">
+      <!-- Josh Northcott -->
+      <div class="agent-card">
+        <div class="agent-icon"><i class="fas fa-user-astronaut"></i></div>
+        <div class="agent-name">Josh Northcott</div>
+        <div class="agent-title">Founder, Nah Collective</div>
+        <div class="agent-quote">“I help people navigate buying property in Mérida without the usual confusion or pressure.”</div>
+      </div>
+      <!-- Valeria Fuentes -->
+      <div class="agent-card">
+        <div class="agent-icon"><i class="fas fa-leaf"></i></div>
+        <div class="agent-name">Valeria Fuentes</div>
+        <div class="agent-title">Real Estate Advisor</div>
+        <div class="agent-quote">“Born and raised in Mérida — I connect buyers with authentic neighborhoods and hidden gems.”</div>
+      </div>
+      <!-- Carlos May -->
+      <div class="agent-card">
+        <div class="agent-icon"><i class="fas fa-chart-line"></i></div>
+        <div class="agent-name">Carlos May</div>
+        <div class="agent-title">Investment Specialist</div>
+        <div class="agent-quote">“Long-term value starts with smart due diligence. I ensure your investment performs.”</div>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 40px; font-weight: 500; color: #E07C3C;">+ more local advisors joining the collective soon</p>
+  </div>
+</section>
+
+<!-- Section 6 — Call to Action (vibrant) -->
+<div class="container">
+  <div class="cta-section">
+    <h2>Thinking about buying in Mérida?</h2>
+    <p style="font-size: 1.2rem; margin-top: 12px; opacity: 0.9;">Whether you're exploring options or ready to move forward, we’re here to help.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/5219991234567?text=Hi%20Nah%20Collective%2C%20I'd%20like%20to%20learn%20more%20about%20properties%20in%20Mérida" target="_blank" class="btn btn-wa" style="background: #fff; color: #1A6D5E;"><i class="fab fa-whatsapp"></i> Message us on WhatsApp</a>
+      <a href="#" class="btn btn-light" id="scheduleBtn"><i class="fas fa-calendar-alt"></i> Or schedule a quick call</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Nah Collective — “Nah” means home. Honest guidance, rooted in Mérida.</p>
+    <p style="margin-top: 12px;"><i class="fab fa-instagram"></i>   <i class="fab fa-whatsapp"></i>   <i class="far fa-envelope"></i>   hello@nahcollective.mx</p>
+  </div>
+</footer>
+
+<!-- Modal for schedule call -->
+<div id="callModal" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.65); align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(3px);">
+  <div style="background: white; max-width: 460px; width: 90%; border-radius: 48px; padding: 40px 32px; text-align: center; box-shadow: 0 30px 40px rgba(0,0,0,0.2);">
+    <i class="fas fa-phone-alt" style="font-size: 2.5rem; background: linear-gradient(135deg,#1A6D5E, #E07C3C); background-clip: text; -webkit-background-clip: text; color: transparent; margin-bottom: 12px;"></i>
+    <h3 style="font-size: 1.7rem; margin-bottom: 12px;">Schedule a quick call</h3>
+    <p style="margin-bottom: 28px; color: #4A6A62;">Share your details and we’ll reach out within 24h.</p>
+    <input type="text" id="callName" placeholder="Your full name" style="width:100%; padding: 14px; border-radius: 80px; border:1px solid #E2D9CF; margin-bottom: 16px; font-family: inherit;">
+    <input type="tel" id="callPhone" placeholder="WhatsApp or phone number" style="width:100%; padding: 14px; border-radius: 80px; border:1px solid #E2D9CF; margin-bottom: 28px; font-family: inherit;">
+    <div style="display: flex; gap: 14px; justify-content: center;">
+      <button id="closeModalBtn" style="background:#F2E9E0; border:none; padding: 12px 28px; border-radius: 60px; font-weight:600; cursor: pointer;">Cancel</button>
+      <button id="confirmCallBtn" style="background:#1A6D5E; color:white; border:none; padding: 12px 32px; border-radius: 60px; font-weight:600; cursor: pointer;">Send request</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const scheduleBtn = document.getElementById('scheduleBtn');
+  const modal = document.getElementById('callModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const confirmCallBtn = document.getElementById('confirmCallBtn');
+
+  function openModal() { modal.style.display = 'flex'; }
+  function closeModal() { modal.style.display = 'none'; }
+
+  if(scheduleBtn) scheduleBtn.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+  if(closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+  if(confirmCallBtn) {
+    confirmCallBtn.addEventListener('click', () => {
+      const name = document.getElementById('callName')?.value.trim();
+      const phone = document.getElementById('callPhone')?.value.trim();
+      if(name && phone) {
+        alert(`✨ Thank you ${name}! We'll contact you via ${phone} to schedule a call. Welcome to Nah Collective.`);
+        closeModal();
+        document.getElementById('callName').value = '';
+        document.getElementById('callPhone').value = '';
+      } else {
+        alert('Please provide both your name and phone/WhatsApp so we can help you.');
+      }
+    });
+  }
+  window.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if(targetId === "#" || targetId === "") return;
+      const targetElement = document.querySelector(targetId);
+      if(targetElement) { e.preventDefault(); targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+</body>
+</html>
